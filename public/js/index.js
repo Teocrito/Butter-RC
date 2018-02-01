@@ -1,4 +1,4 @@
-var playing = false;
+var subs = false;
 
 function load(){
 	if (localStorage.getItem('ip')){
@@ -9,13 +9,21 @@ function load(){
 		butter_remote.opt.subs = localStorage.getItem('subs');
 	}
 	butter_remote.init();
-	playing = butter_remote.getplaying().status;
-	togglePlayButton();
+	butter_remote.getplaying(togglePlayButton);
 }
 
-function togglePlayButton(){
+function toggleSubs(){
+	if (subs){
+		butter_remote.setsubtitle(['none']);
+	}else{
+		butter_remote.setsubtitle([butter_remote.opt.subs]);
+	}
+}
+
+function togglePlayButton(data){
 	var playBtn = document.getElementById('play');
-	if (playing){
+	console.log(data.result.playing);
+	if (data.result.playing){
 		playBtn.setAttribute('src','public/img/pause.svg');
 	}else{
 		playBtn.setAttribute('src','public/img/play.svg');
@@ -24,15 +32,12 @@ function togglePlayButton(){
 
 function togglePlay(){
 	butter_remote.toggleplaying();
-	playing = butter_remote.getplaying();
-	togglePlayButton();
+	butter_remote.getplaying(togglePlayButton);
 }
 
 function ok(){
 	butter_remote.enter();
-	playing = butter_remote.getplaying();
-	console.log(playing.status);
-	togglePlayButton();
+	butter_remote.getplaying(togglePlayButton);
 }
 
 function toggleOption(elmnt,op){
@@ -155,7 +160,7 @@ function key(event){
 function search(){
 	var search = document.getElementById('searchTxt').value;
 	if (search != ""){
-		butter_remote.filtersearch(search);
+		butter_remote.filtersearch([search]);
 	}else{
 		butter_remote.clearsearch();
 	}
