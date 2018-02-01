@@ -8,7 +8,10 @@
         Teo Carlos Sánchez Balderas
     </author>
     <preference name="Orientation" value="portrait" />
-    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+    </feature>
+    <feature name="http://api.phonegap.com/1.0/camera" />
     <icon src="public/img/logo.png" />
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
