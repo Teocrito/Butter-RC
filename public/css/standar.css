@@ -1,0 +1,41 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', sans-serif;
+	color: #1AE0A4;
+	outline: none;
+}
+
+body, html{
+	background-color:   #263238;
+	height: 100%;
+	width: 100%;
+}
+
+button{
+	background-color: transparent;
+	transition: all .3s;
+}
+
+button:active{
+	transform: scale(.8);
+	transition: all .2s:;
+}
+
+#notif{
+	position: fixed;
+	padding: 10px;
+	display: none;
+	width: 90%;
+	background-color: rgba(6,12,18,0.7);
+	color: rgba(255,255,255,0.8);
+	font-size: 0.8em;
+	text-align: justify;
+	border-radius: 8px;
+	bottom: 25px;
+	left: 5%;
+	transition: all .3s;
+	z-index: 15;
+}

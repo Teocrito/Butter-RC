@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<title>Remote Control</title>
+</head>
+<link rel="stylesheet" type="text/css" href="public/css/index.css">
+<link rel="stylesheet" type="text/css" href="public/css/standar.css">
+<link rel="stylesheet" href="public/css/fontawesome/css/font-awesome.min.css">
+
+<body>
+	<header>
+		<button class="active" onclick="toggleOption(this,1)">MOVIES</button>
+		<button onclick="toggleOption(this,2)">SHOWS</button>
+		<button onclick="toggleOption(this,3)">SETTINGS</button>
+	</header>
+	<div id="search"><input type="text" onkeypress="key(event)" id="searchTxt"><button onclick="search()"><img src="public/img/search.svg" alt=""></button></div>
+	<table id="controls">
+		<tr>
+			<td><button class="second" onclick="butter_remote.setsubtitle()"><img src="public/img/sub.svg" alt=""></button></td>
+			<td><button class="principal" onclick="butter_remote.up()"><img src="public/img/arrow.svg" alt=""></button></td>
+			<td><button class="second" onclick="butter_remote.togglequality()"><img src="public/img/quality.svg" alt=""></button></td>
+		</tr>
+		<tr>
+			<td><button class="principal" onclick="butter_remote.left()"><img src="public/img/arrow.svg" alt="" style="transform: rotate(270deg);"></button></td>
+			<td><button class="principal" onclick="ok()">OK</button></td>
+			<td><button class="principal" onclick="butter_remote.right()"><img src="public/img/arrow.svg" alt="" style="transform: rotate(90deg);"></button></td>
+		</tr>
+		<tr>
+			<td><button class="second" onclick="butter_remote.back()"><img src="public/img/back.svg" alt=""></button></td>
+			<td><button class="principal" onclick="butter_remote.down()"><img src="public/img/arrow.svg" alt="" style="transform: rotate(180deg);"></button></td>
+			<td><button class="second" onclick="butter_remote.togglefullscreen()"><img src="public/img/fullscreen.svg" alt=""></button></td>
+		</tr>
+	</table>
+	<table id="controls2"><tr>
+		<td><button onclick="butter_remote.previousseason()"><img src="public/img/next.svg" style="transform: rotate(-90deg);"></button></td>
+		<td><button onclick="togglePlay()"><img src="public/img/play.svg" id="play"></button></td>
+		<td><button onclick="butter_remote.nextseason()"><img src="public/img/next.svg" style="transform: rotate(90deg);"></button></td>
+	</tr></table>
+	<!-- <footer><i class="fa fa-info-circle" aria-hidden="true"></i><a onclick="showCredits()">
+About</a></footer> -->
+
+<!-- SETTINGS SECTION -->
+<div id="settings">
+	<table>
+		<tr>
+			<td>Ip:</td>
+			<td><input type="text" id="ip"></td>
+		</tr>
+		<tr>
+			<td>Port:</td>
+			<td><input type="text" id=port></td>
+		</tr>
+		<tr>
+			<td>User:</td>
+			<td><input type="text" id="user"></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input type="password" id="pass"></td>
+		</tr>
+		<tr>
+			<td>Subtitles:</td>
+			<td><select id="subs">
+				<option>spanish</option>
+				<option>english</option>
+			</select></td>
+		</tr>
+	</table>
+	<button onclick="saveSettings()" class="realse"><img src="public/img/save.svg" alt=""></button>
+	<button onclick="qrScan()" class="realse"><img src="public/img/qr.svg" alt=""></button>
+</div>
+<!-- NOTIFICATION DIV -->
+<div id="notif"></div>
+<!-- ABOUT SECTION -->
+<div id="about">
+	
+</div>
+<!-- QR CODE SCANER -->
+<video id="scan"></video>
+</body>
+<script type="text/javascript" src="public/js/popcorn.js"></script>
+<script type="text/javascript" src="public/js/index.js" onload="load();"></script>
+<script type="text/javascript" src="public/js/instascan.min.js"></script>
+</html>
