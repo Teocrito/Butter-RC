@@ -7,6 +7,8 @@
     <author email="sabt961111@gmail.com" href="http://cordova.io">
         Teo Carlos Sánchez Balderas
     </author>
+    <preference name="Orientation" value="portrait" />
+    <feature name="http://api.phonegap.com/1.0/camera"/>
     <icon src="public/img/logo.png" />
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
